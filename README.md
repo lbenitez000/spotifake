@@ -2,7 +2,9 @@
 
 Spotifake es un proyecto de ejemplo que usa Django y [Django REST Framework](https://github.com/encode/django-rest-framework/).
 
-La aplicación funciona como una versión simplificada de Spotify. Permite crear Artistas y Álbumes con pistas.
+La aplicación funciona como una versión simplificada de Spotify. Permite crear Artistas y Álbumes con pistas. Hay una explicación en el siguiente video.
+
+[https://youtu.be/tn23rDtb_q0](https://youtu.be/tn23rDtb_q0)
 
 ## API
 Se adjunta una colección de Postman en el archivo `spotifake.postman_collection.json`.
