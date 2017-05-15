@@ -136,4 +136,7 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'spotifake.renderers.WrappedJSONRenderer',
     ),
+    'TEST_REQUEST_RENDERER_CLASSES': (
+        'spotifake.renderers.WrappedJSONRenderer',
+    )
 }

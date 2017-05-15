@@ -28,7 +28,7 @@ urlpatterns = [
     url(r'^api/artist/$', ArtistAPIView.as_view(), name='api_artist'),
     url(r'^api/artist/(?P<pk>\d+)/$', ArtistItemAPIView.as_view(), name='api_artist_item'),
     url(r'^api/album/$', AlbumAPIView.as_view(), name='api_album'),
-    url(r'^api/artist/(?P<artist_id>\d+)/album/$', AlbumAPIView.as_view(), name='api_artist_album'),
+    url(r'^api/artist/(?P<artist_id>\d+)/album/$', AlbumAPIView.as_view(), name='api_artist_item_album'),
     url(r'^api/album/(?P<pk>\d+)/$', AlbumItemAPIView.as_view(), name='api_album_item'),
     url(r'^api/track/(?P<pk>\d+)/$', TrackItemAPIView.as_view(), name='api_track_item'),
 ]

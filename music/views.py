@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from datetime import date
 
 from rest_framework.generics import ListCreateAPIView,RetrieveUpdateAPIView,  RetrieveUpdateDestroyAPIView
+from rest_framework import exceptions
 
 from music.models import Artist, Album, Track
 from music.serializers import ArtistWithRelationsSerializer, AlbumSerializer, TrackSerializer
@@ -26,10 +27,17 @@ class AlbumAPIView(ListCreateAPIView):
         queryset = Album.objects.all()
 
         # Apply filters
+
         # By artist
         artist_id = self.kwargs.get('artist_id')
         if artist_id:
-            queryset = queryset.filter(artist_id=artist_id)
+            try:
+                artist = Artist.objects.get(pk=artist_id)
+            except Artist.DoesNotExist:
+                raise exceptions.NotFound("Artist not found")
+
+            queryset = queryset.filter(artist=artist)
+
         # Hide unreleased albums from non-admin users
         if not self.request.user.is_staff:
             queryset = queryset.filter(release_date__lte=date.today())

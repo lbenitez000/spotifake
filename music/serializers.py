@@ -63,8 +63,8 @@ class AlbumSerializer(serializers.ModelSerializer):
         collaborators = set()
         for song in album.tracks.all():
             collaborators.update(song.collaborators.all())
-        artist_serializer = ArtistSerializer(collaborators, many=True)
-        return artist_serializer.data
+        collaborators_ids = [collaborator.id for collaborator in collaborators]
+        return collaborators_ids
 
     def get_n_tracks(self, album):
         return album.tracks.count()
